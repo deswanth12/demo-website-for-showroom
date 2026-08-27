@@ -14,13 +14,13 @@ export default function LocationsPage() {
       {/* Header */}
       <div className="border-b border-[#E5E7EB] pb-6">
         <div className="text-xs font-mono-data uppercase tracking-wider text-[#0E7490] font-bold">
-          Multi-Showroom Network
+          Multi-Showroom Network (Demo Concept)
         </div>
         <h1 className="text-3xl sm:text-4xl font-extrabold text-[#080B10] mt-1 tracking-tight">
           Showroom & Experience Center Locations
         </h1>
         <p className="text-xs sm:text-sm text-slate-600 mt-1">
-          Visit any of our regional experience facilities to inspect live commercial refrigeration equipment.
+          Interactive demonstration showing how multiple dealer branches, contact desks, and equipment centers route customer inquiries.
         </p>
       </div>
 
