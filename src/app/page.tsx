@@ -319,7 +319,7 @@ export default function HomePage() {
               Ready to Build Your Equipment Quote?
             </h3>
             <p className="text-xs sm:text-sm text-[#A8B0BA] leading-relaxed">
-              Add multiple units to your cart, specify layout requirements, and generate an itemized proforma proposal with bulk discounts.
+              Quote support for commercial equipment and facility requirements.
             </p>
           </div>
 

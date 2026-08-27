@@ -39,7 +39,7 @@ import {
   mockAuditLogs,
 } from './mockData';
 
-const STORAGE_KEY = 'frostflow_showroom_db_v6';
+const STORAGE_KEY = 'frostflow_showroom_db_v7';
 
 interface DBState {
   tenant: Tenant;
@@ -63,10 +63,31 @@ interface DBState {
 
 function getInitialDB(): DBState {
   if (typeof window !== 'undefined') {
+    try {
+      const keysToRemove: string[] = [];
+      for (let i = 0; i < localStorage.length; i++) {
+        const k = localStorage.key(i);
+        if (k && k.startsWith('frostflow_') && k !== STORAGE_KEY) {
+          keysToRemove.push(k);
+        }
+      }
+      keysToRemove.forEach((k) => localStorage.removeItem(k));
+    } catch (e) {
+      // Ignore
+    }
+
     const saved = localStorage.getItem(STORAGE_KEY);
     if (saved) {
       try {
-        return JSON.parse(saved);
+        const parsed = JSON.parse(saved);
+        const hasLegacy = parsed.brands?.some((b: any) =>
+          /Voltas|Western|Blue Star|Trufrost/i.test(b.name || '')
+        );
+        if (!hasLegacy && parsed.tenant && parsed.products) {
+          return parsed;
+        } else {
+          localStorage.removeItem(STORAGE_KEY);
+        }
       } catch (e) {
         console.error('Failed to parse local showroom DB, re-initializing mock data', e);
       }

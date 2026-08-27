@@ -94,14 +94,11 @@ export default function Footer() {
 
           {/* Showrooms */}
           <div className="space-y-3">
-            <h4 className="text-xs font-bold uppercase tracking-wider text-white">Showrooms</h4>
-            <div className="space-y-2 text-slate-400 text-xs">
-              {branches.map((b) => (
-                <div key={b.id}>
-                  <p className="font-semibold text-slate-200">{b.city} Center</p>
-                  <p className="font-mono-data text-[11px] text-[#27C7D9]">{b.phone}</p>
-                </div>
-              ))}
+            <h4 className="text-xs font-bold uppercase tracking-wider text-white">Showroom</h4>
+            <div className="space-y-1 text-slate-400 text-xs">
+              <p className="font-semibold text-slate-200">Demo Showroom</p>
+              <p className="text-slate-400">India</p>
+              <p className="font-mono-data text-[11px] text-[#27C7D9]">+91 XXX XXX XXXX</p>
             </div>
           </div>
         </div>
