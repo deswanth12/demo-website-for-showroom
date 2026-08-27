@@ -92,9 +92,9 @@ export default function HomePage() {
             <div className="lg:col-span-5">
               <div className="relative rounded-2xl border border-[#202832] bg-[#11161D] overflow-hidden shadow-2xl">
                 <img
-                  src="https://images.unsplash.com/photo-1584992236310-6edddc08acff?q=80&w=1000&auto=format&fit=crop"
+                  src="/images/hero/hero_cooling_machinery.jpg"
                   alt="FrostFlow Commercial Refrigeration"
-                  className="w-full h-full object-cover aspect-[4/5] opacity-90 hover:scale-102 transition-transform duration-700"
+                  className="w-full h-full object-cover aspect-[4/3] sm:aspect-[4/5] opacity-90 hover:scale-102 transition-transform duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#080B10] via-transparent to-transparent opacity-80"></div>
                 <div className="absolute bottom-6 left-6 right-6 flex items-center justify-between text-xs">
