@@ -270,7 +270,7 @@ export function generateFormalQuotePDF(
   (quote.termsAndConditions || [
     'Payment: 50% advance along with confirmed order, 50% prior to dispatch.',
     'Delivery: Standard delivery within 3-5 business days upon receipt of advance.',
-    'Warranty: Standard 1-Year Comprehensive + 4-Year Compressor manufacturer warranty.',
+    'Warranty: Dealer-configurable (Standard Commercial Terms).',
     'Electrical: 230V 50Hz single phase / 415V 3-phase stabilized supply to be provided by client.',
   ]).forEach((term) => {
     doc.text(`•  ${term}`, 16, y);

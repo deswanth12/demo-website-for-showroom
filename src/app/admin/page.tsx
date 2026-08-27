@@ -194,7 +194,7 @@ export default function AdminPage() {
       termsAndConditions: [
         '50% Advance along with confirmed Purchase Order, balance prior to dispatch.',
         'Standard delivery within 3-5 business days.',
-        '1-Year Comprehensive Warranty + 4-Year Compressor Warranty.',
+        'Warranty: Dealer-configurable (Standard Commercial Terms).',
         'Standard 230V 1-phase electrical input to be supplied at site by client.',
       ],
       status: 'sent',

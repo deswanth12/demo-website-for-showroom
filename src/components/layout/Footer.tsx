@@ -41,8 +41,8 @@ export default function Footer() {
           <div className="flex items-center gap-3">
             <Phone className="h-5 w-5 text-[#27C7D9] shrink-0" />
             <div>
-              <span className="font-bold text-white uppercase tracking-wider block">Direct Technical Desk</span>
-              <span className="text-[11px] text-slate-400">+91 77022 56073 Consultation</span>
+              <span className="font-bold text-white uppercase tracking-wider block">Technical Support</span>
+              <span className="text-[11px] text-slate-400">Installation & Service Support</span>
             </div>
           </div>
         </div>

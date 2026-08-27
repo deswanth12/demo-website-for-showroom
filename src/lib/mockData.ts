@@ -39,7 +39,7 @@ export const mockTenant: Tenant = {
       city: 'Mumbai',
       state: 'Maharashtra',
       pincode: '400001',
-      phone: '+91 77022 56073',
+      phone: '+91 XXX XXX XXXX',
       whatsapp: '917702256073',
       email: 'sales@frostflow.com',
       coordinates: { lat: 19.1136, lng: 72.8697 },
@@ -58,7 +58,7 @@ export const mockTenant: Tenant = {
       city: 'Bengaluru',
       state: 'Karnataka',
       pincode: '560001',
-      phone: '+91 77022 56073',
+      phone: '+91 XXX XXX XXXX',
       whatsapp: '917702256073',
       email: 'bangalore@frostflow.com',
       coordinates: { lat: 12.9352, lng: 77.6245 },
@@ -77,7 +77,7 @@ export const mockTenant: Tenant = {
       city: 'New Delhi',
       state: 'Delhi',
       pincode: '110001',
-      phone: '+91 77022 56073',
+      phone: '+91 XXX XXX XXXX',
       whatsapp: '917702256073',
       email: 'delhi@frostflow.com',
       coordinates: { lat: 28.5355, lng: 77.2732 },
@@ -362,7 +362,7 @@ export const mockProducts: Product[] = [
       'Lid Construction': 'High-tensile spring counterbalanced solid top',
       'Compressor': 'Heavy duty commercial hermetic',
       'Holdover Time': 'Up to 14 Hours without electricity',
-      'Warranty': '1 Year Comprehensive + 4 Years Compressor Coverage',
+      'Warranty': 'Dealer-configurable (Standard Commercial Warranty)',
     },
     media: [
       {
@@ -573,7 +573,7 @@ export const mockProducts: Product[] = [
       'Facing Material': '0.5mm Pre-painted Galvanized Steel (PPGI) / Stainless Steel 304',
       'Condensing Unit': 'Emerson Copeland Scroll / Bitzer Semi-Hermetic',
       'Safety Compliance': 'Internal glow-in-the-dark safety escape latch',
-      'Warranty': '1 Year Complete Installation + 3 Year Compressor',
+      'Warranty': 'Dealer-configurable (Standard Commercial Warranty)',
     },
     media: [
       {
@@ -1057,11 +1057,11 @@ export const mockQuotes: Quote[] = [
     termsAndConditions: [
       '50% Advance with Purchase Order, 50% prior to dispatch.',
       'Delivery timeline: 3-5 business days from confirmed order date.',
-      'Includes 1-Year Comprehensive Warranty + 4-Year Compressor Coverage.',
+      'Includes dealer-configurable commercial warranty terms.',
       'Onsite commissioning and operational staff demo included.',
     ],
     status: 'sent',
-    assignedStaff: 'Anil Mehta (Enterprise Sales)',
+    assignedStaff: 'Demo Sales Desk',
     createdAt: '2026-02-24T12:30:00.000Z',
     updatedAt: '2026-02-24T12:30:00.000Z',
     deletedAt: null,
@@ -1074,69 +1074,32 @@ export const mockFAQs: FAQItem[] = [
     category: 'Commercial Delivery & Shipping',
     question: 'How fast can commercial refrigeration units be dispatched?',
     answer:
-      'Standard catalog models (Visi-coolers, Chest Freezers, Undercounters) available at our regional showrooms are dispatched within 24 to 48 hours. Custom turnkey cold rooms and high-capacity modular systems require 5 to 10 days for site engineering and manufacturing.',
+      'Standard catalog models available at regional showrooms are dispatched within 24 to 48 hours. Custom turnkey cold rooms and modular systems require 5 to 10 days for site engineering.',
   },
   {
     id: 'faq-2',
     category: 'Power & Electrical Requirements',
     question: 'What electrical supply and stabilizer setup is recommended?',
     answer:
-      'Standard plug-in units (up to 1000L) operate on standard 230V / 50Hz single-phase supply with a 15A/16A industrial socket. Large walk-in cold rooms and blast freezers require 415V 3-phase stabilized supply. We highly recommend dedicated voltage stabilizers in areas prone to voltage fluctuations.',
+      'Standard plug-in units operate on standard 230V / 50Hz single-phase supply with a 15A/16A industrial socket. Large walk-in cold rooms require 415V 3-phase stabilized supply.',
   },
   {
     id: 'faq-3',
     category: 'B2B Quotation & Volume Discounts',
     question: 'How do tiered commercial volume discounts work?',
     answer:
-      'Our commercial pricing automatically factors in order volumes: 3-5 units get 5% discount, 6-9 units receive 8%, and 10+ units get 12% bulk discount. Enterprise supermarket chains and turnkey kitchen projects receive tailored contract rates through our B2B quotation desk.',
+      'Commercial pricing automatically factors in order volumes: 3-5 units get 5% discount, 6-9 units receive 8%, and 10+ units get 12% bulk discount. Tailored contract rates are generated via the B2B quote cart.',
   },
   {
     id: 'faq-4',
     category: 'Warranty & AMC Servicing',
     question: 'What warranty coverage is included with commercial units?',
     answer:
-      'All commercial cooling appliances include 1-Year Comprehensive On-Site Warranty and 4-Year Compressor Warranty. We also offer Annual Maintenance Contracts (AMC) with scheduled preventive quarterly maintenance and guaranteed 4-hour breakdown response times.',
+      'All commercial cooling appliances include dealer-configurable warranty coverage. Annual Maintenance Contracts (AMC) with scheduled preventive quarterly maintenance are also supported.',
   },
 ];
 
-export const mockTestimonials: Testimonial[] = [
-  {
-    id: 'test-1',
-    name: 'Chef Sanjeev Kapoor',
-    role: 'Culinary Director',
-    businessName: 'Signature Hospitality Chain',
-    city: 'Mumbai',
-    rating: 5,
-    content:
-      'FrostFlow provided complete stainless undercounters and walk-in chiller systems across 6 of our central kitchens. Flawless thermal holdover and remarkable energy efficiency.',
-    avatarUrl: 'https://images.unsplash.com/photo-1577219491135-ce391730fb2c?q=80&w=200&auto=format&fit=crop',
-    productReferenced: 'ThermaLock™ Walk-in Cold Room',
-  },
-  {
-    id: 'test-2',
-    name: 'Kavita Nair',
-    role: 'Operations Head',
-    businessName: 'Artisan Pastry Labs',
-    city: 'Bengaluru',
-    rating: 5,
-    content:
-      'The Panache curved glass bakery showcase transformed our store aesthetic. The anti-condensation heated glass ensures our chocolate pastries look pristine even during monsoon humidity.',
-    avatarUrl: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=200&auto=format&fit=crop',
-    productReferenced: 'Panache Curved Bakery Showcase',
-  },
-  {
-    id: 'test-3',
-    name: 'Gaurav Singhal',
-    role: 'Managing Director',
-    businessName: 'FrostBite Ice Creams',
-    city: 'New Delhi',
-    rating: 5,
-    content:
-      'Equipped 22 retail franchises with Glacier 500L commercial freezers. Zero temperature drop incidents during summer peaks and instant WhatsApp dispatch support from the Delhi showroom.',
-    avatarUrl: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200&auto=format&fit=crop',
-    productReferenced: 'Glacier 500L Deep Freezer',
-  },
-];
+export const mockTestimonials: Testimonial[] = [];
 
 export const mockGallery: GalleryItem[] = [
   {

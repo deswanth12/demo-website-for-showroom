@@ -39,7 +39,7 @@ import {
   mockAuditLogs,
 } from './mockData';
 
-const STORAGE_KEY = 'frostflow_showroom_db_v4';
+const STORAGE_KEY = 'frostflow_showroom_db_v5';
 
 interface DBState {
   tenant: Tenant;

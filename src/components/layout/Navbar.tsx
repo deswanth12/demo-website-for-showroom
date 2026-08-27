@@ -203,7 +203,7 @@ export default function Navbar() {
               className="w-full flex items-center justify-center gap-2 rounded-lg bg-[#22C55E] py-3 text-xs font-bold text-white shadow-md"
             >
               <MessageCircle className="h-4 w-4" />
-              <span>WhatsApp Specialist ({selectedBranch.phone})</span>
+              <span>WhatsApp Specialist ({selectedBranch.city})</span>
             </a>
 
             <div className="flex items-center justify-between text-xs pt-1 px-1">
