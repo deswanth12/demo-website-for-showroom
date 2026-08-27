@@ -23,7 +23,7 @@ export default function QuoteCartDrawer() {
       />
 
       {/* Slide-over Panel */}
-      <div className="fixed inset-y-0 right-0 max-w-full flex pl-10">
+      <div className="fixed inset-y-0 right-0 max-w-full flex pl-0 sm:pl-10">
         <div className="w-screen max-w-md bg-white border-l border-[#E2E8F0] shadow-2xl flex flex-col text-[#0F172A]">
           {/* Header */}
           <div className="p-4 sm:p-6 border-b border-[#E2E8F0] flex items-center justify-between bg-[#F8FAFC]">
@@ -140,7 +140,7 @@ export default function QuoteCartDrawer() {
                 <Link
                   href="/quote"
                   onClick={() => setIsDrawerOpen(false)}
-                  className="w-full flex items-center justify-center gap-2 rounded-lg bg-[#22D3EE] py-3.5 text-xs font-bold text-[#0B1220] hover:bg-[#06B6D4] transition-all shadow-md"
+                  className="w-full flex items-center justify-center gap-2 rounded-lg bg-[#27C7D9] py-3.5 text-xs uppercase tracking-wider font-extrabold text-[#080B10] hover:bg-[#8DD8E8] transition-all shadow-md"
                 >
                   <span>Complete B2B Quote Request</span>
                   <ArrowRight className="h-4 w-4" />

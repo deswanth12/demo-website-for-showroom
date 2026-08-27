@@ -251,6 +251,18 @@ function ProductsCatalogueContent() {
                 <span>Reset All Filters</span>
               </button>
             )}
+
+            {/* Mobile Apply Button */}
+            {mobileFilterOpen && (
+              <div className="sticky bottom-0 pt-4 pb-2 bg-[#F8FAFC] border-t border-[#E2E8F0] lg:hidden">
+                <button
+                  onClick={() => setMobileFilterOpen(false)}
+                  className="w-full rounded-lg bg-[#27C7D9] py-3 text-xs uppercase tracking-wider font-extrabold text-[#080B10] shadow-md"
+                >
+                  Apply Filters ({products.length} Units)
+                </button>
+              </div>
+            )}
           </div>
         </aside>
 

@@ -290,11 +290,11 @@ export default function QuotePage() {
                 <button
                   type="submit"
                   disabled={items.length === 0 || isSubmitting}
-                  className="w-full flex items-center justify-center gap-2 rounded-xl bg-[#22D3EE] py-4 text-xs font-bold text-[#0B1220] hover:bg-[#06B6D4] disabled:opacity-50 transition-all shadow-md mt-4"
+                  className="w-full flex items-center justify-center gap-2 rounded-xl bg-[#27C7D9] py-4 text-xs uppercase tracking-wider font-extrabold text-[#080B10] hover:bg-[#8DD8E8] disabled:opacity-50 transition-all shadow-md mt-4"
                 >
                   <Send className="h-4 w-4" />
                   <span>
-                    {isSubmitting ? 'Processing Proposal...' : 'Submit Commercial Quote Request'}
+                    {isSubmitting ? 'Generating Proposal...' : 'Submit Commercial Quote Request'}
                   </span>
                 </button>
               </div>

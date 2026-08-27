@@ -106,6 +106,11 @@ export default function ComparePage() {
         </div>
       </div>
 
+      {/* Mobile Swipe Hint */}
+      <div className="sm:hidden text-[11px] text-[#0E7490] font-mono-data mb-2 font-semibold flex items-center gap-1">
+        <span>← Swipe horizontally to compare specifications →</span>
+      </div>
+
       {/* Comparison Matrix Table */}
       <div className="overflow-x-auto rounded-2xl border border-[#E2E8F0] bg-white shadow-sm">
         <table className="w-full text-left border-collapse">

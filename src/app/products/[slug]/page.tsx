@@ -179,18 +179,18 @@ export default function ProductDetailPage({ params }: PageProps) {
           )}
 
           {/* Quick PDF & Share Utility */}
-          <div className="grid grid-cols-2 gap-3 pt-2">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-2">
             <button
               onClick={handleDownloadPDF}
-              className="flex items-center justify-center gap-2 rounded-xl border border-[#CBD5E1] bg-white py-2.5 px-3 text-xs font-bold text-slate-700 hover:border-black hover:text-black transition-all shadow-sm"
+              className="flex items-center justify-center gap-2 rounded-xl border border-[#CBD5E1] bg-white py-3 px-3 text-xs font-bold text-slate-700 hover:border-black hover:text-black transition-all shadow-sm"
             >
-              <Download className="h-4 w-4" />
-              <span>Download Spec Sheet</span>
+              <Download className="h-4 w-4 text-[#0E7490]" />
+              <span>Download Datasheet (PDF)</span>
             </button>
 
             <button
               onClick={handleShare}
-              className="flex items-center justify-center gap-2 rounded-xl border border-[#CBD5E1] bg-white py-2.5 px-3 text-xs font-bold text-slate-700 hover:border-black hover:text-black transition-all shadow-sm"
+              className="flex items-center justify-center gap-2 rounded-xl border border-[#CBD5E1] bg-white py-3 px-3 text-xs font-bold text-slate-700 hover:border-black hover:text-black transition-all shadow-sm"
             >
               <Share2 className="h-4 w-4" />
               <span>{copiedLink ? 'Link Copied!' : 'Share Product'}</span>
@@ -303,11 +303,11 @@ export default function ProductDetailPage({ params }: PageProps) {
             </div>
 
             {/* Primary Action Buttons */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-              {/* Add to Quote Cart (Frost Cyan) */}
+            <div className="flex flex-col sm:flex-row gap-3">
+              {/* Primary: Add to Quote Cart */}
               <button
                 onClick={handleAddToCart}
-                className={`sm:col-span-2 flex items-center justify-center gap-2 rounded-xl py-3.5 px-4 text-xs font-bold transition-all shadow-md ${
+                className={`w-full sm:flex-1 flex items-center justify-center gap-2 rounded-xl py-3.5 px-6 text-xs uppercase tracking-wider font-extrabold transition-all shadow-md ${
                   addedAnimation
                     ? 'bg-emerald-600 text-white'
                     : 'bg-[#27C7D9] text-[#080B10] hover:bg-[#8DD8E8]'
@@ -321,20 +321,20 @@ export default function ProductDetailPage({ params }: PageProps) {
                 ) : (
                   <>
                     <FileText className="h-4 w-4" />
-                    <span>Add {quantity} Unit(s) to Quote</span>
+                    <span>REQUEST QUOTE ({quantity} Unit{quantity > 1 ? 's' : ''})</span>
                   </>
                 )}
               </button>
 
-              {/* Direct WhatsApp Consultation */}
+              {/* Secondary: Direct WhatsApp Enquiry */}
               <a
                 href={getWhatsAppProductInquiryUrl(selectedBranch.whatsapp, product, selectedVariant, selectedBranch)}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-center gap-2 rounded-xl border border-[#22C55E]/40 bg-[#F0FDF4] py-3.5 px-4 text-xs font-bold text-[#15803D] hover:bg-[#22C55E] hover:text-white transition-all shadow-sm"
+                className="w-full sm:w-auto flex items-center justify-center gap-2 rounded-xl border border-[#22C55E]/40 bg-[#F0FDF4] py-3.5 px-6 text-xs uppercase tracking-wider font-bold text-[#15803D] hover:bg-[#22C55E] hover:text-white transition-all shadow-sm"
               >
-                <MessageCircle className="h-4 w-4" />
-                <span>WhatsApp Specialist</span>
+                <MessageCircle className="h-4 w-4 text-[#22C55E]" />
+                <span>WHATSAPP ENQUIRY</span>
               </a>
             </div>
 
