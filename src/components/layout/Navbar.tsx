@@ -31,24 +31,27 @@ export default function Navbar() {
   const navLinks = [
     { label: 'Equipment', href: '/products' },
     { label: 'Industries', href: '/industries/restaurants-cafes' },
-    { label: 'Cold Rooms & Turnkey', href: '/services/cold-room-turnkey-installation' },
+    { label: 'Cold Rooms', href: '/services/cold-room-turnkey-installation' },
     { label: 'Installations', href: '/gallery' },
     { label: 'Showrooms', href: '/locations' },
   ];
 
   return (
     <header className="sticky top-0 z-40 w-full bg-[#080B10] text-white border-b border-[#202832]">
-      {/* Top Location Bar */}
+      {/* Top Demo Notice & Location Bar */}
       <div className="border-b border-[#11161D] bg-[#05070A] px-4 py-1.5 text-xs text-[#A8B0BA]">
         <div className="mx-auto flex max-w-7xl items-center justify-between">
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-3">
+            <span className="rounded bg-white/10 text-slate-300 px-2 py-0.5 text-[10px] font-mono-data font-semibold">
+              DEMO CONCEPT
+            </span>
             <div className="relative">
               <button
                 onClick={() => setBranchDropdownOpen(!branchDropdownOpen)}
-                className="flex items-center gap-1.5 font-medium text-slate-300 hover:text-white transition-colors"
+                className="flex items-center gap-1.5 font-medium text-slate-300 hover:text-white transition-colors text-xs"
               >
                 <MapPin className="h-3 w-3 text-[#27C7D9]" />
-                <span>Showroom: {selectedBranch.city} ({selectedBranch.name})</span>
+                <span>Showroom: {selectedBranch.city}</span>
                 <ChevronDown className="h-3 w-3 text-slate-500" />
               </button>
 
@@ -94,7 +97,7 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Main Bar */}
+      {/* Main Navigation Bar */}
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3.5 sm:px-6">
         {/* Brand */}
         <Link href="/" className="flex items-center gap-2.5 group">
@@ -104,6 +107,9 @@ export default function Navbar() {
           <div className="flex items-baseline gap-2">
             <span className="text-base font-extrabold tracking-tight text-white">FROSTFLOW</span>
             <span className="text-[10px] font-mono-data uppercase tracking-widest text-[#A8B0BA]">ENGINEERING</span>
+            <span className="hidden sm:inline rounded bg-white/10 text-[#8DD8E8] px-1.5 py-0.5 text-[9px] font-mono-data uppercase font-bold">
+              Demo Concept
+            </span>
           </div>
         </Link>
 
@@ -139,21 +145,22 @@ export default function Navbar() {
             <Link
               href="/compare"
               className="flex h-8 items-center gap-1.5 rounded-lg border border-[#27C7D9]/40 bg-[#27C7D9]/10 px-2.5 text-xs font-semibold text-[#27C7D9]"
+              title="Compare Models"
             >
               <Scale className="h-3.5 w-3.5" />
               <span>{compareCount}</span>
             </Link>
           )}
 
-          {/* Quote Cart */}
+          {/* Primary Request Quote Action */}
           <button
             onClick={() => setIsDrawerOpen(true)}
-            className="flex h-8 items-center gap-1.5 rounded-lg bg-white text-[#080B10] px-3 text-xs font-bold hover:bg-[#F4F5F7] transition-colors"
+            className="flex h-8 items-center gap-1.5 rounded-lg bg-[#27C7D9] text-[#080B10] px-3.5 text-xs font-bold hover:bg-[#8DD8E8] transition-colors shadow-sm"
           >
             <FileText className="h-3.5 w-3.5" />
-            <span>Quote</span>
+            <span>Request Quote</span>
             {totalItems > 0 && (
-              <span className="ml-0.5 rounded-full bg-[#080B10] text-white px-1.5 py-0.2 text-[10px]">
+              <span className="rounded-full bg-[#080B10] text-[#27C7D9] px-1.5 py-0.2 text-[10px] font-mono-data font-bold">
                 {totalItems}
               </span>
             )}
@@ -169,21 +176,38 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu Drawer */}
       {mobileMenuOpen && (
         <div className="border-t border-[#202832] bg-[#080B10] px-4 py-4 lg:hidden">
-          <div className="flex flex-col gap-2.5">
+          <nav className="flex flex-col space-y-3 text-xs uppercase tracking-wider font-semibold">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className="px-3 py-2 text-xs uppercase tracking-wider font-semibold text-slate-300 hover:text-white rounded-md"
+                className="py-2 text-[#A8B0BA] hover:text-white"
               >
                 {link.label}
               </Link>
             ))}
-          </div>
+            <div className="pt-3 border-t border-[#202832] flex items-center justify-between">
+              <Link
+                href="/compare"
+                onClick={() => setMobileMenuOpen(false)}
+                className="text-xs text-slate-400 hover:text-white flex items-center gap-1"
+              >
+                <Scale className="h-3.5 w-3.5" />
+                <span>Compare Matrix ({compareCount})</span>
+              </Link>
+              <Link
+                href="/admin"
+                onClick={() => setMobileMenuOpen(false)}
+                className="text-[11px] font-mono-data text-[#8DD8E8]"
+              >
+                Admin Control ↗
+              </Link>
+            </div>
+          </nav>
         </div>
       )}
     </header>

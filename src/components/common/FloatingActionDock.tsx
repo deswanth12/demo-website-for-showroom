@@ -18,17 +18,17 @@ export default function FloatingActionDock() {
     <>
       {/* Floating Bottom Action Bar for Active Compare Tray */}
       {compareCount > 0 && (
-        <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-40 w-auto max-w-lg rounded-full border border-[#0B1220] bg-[#0B1220]/95 px-5 py-2.5 shadow-2xl backdrop-blur-md flex items-center gap-4 text-white">
+        <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-40 w-auto max-w-lg rounded-full border border-[#202832] bg-[#080B10]/95 px-5 py-2.5 shadow-2xl backdrop-blur-md flex items-center gap-4 text-white">
           <div className="flex items-center gap-2 text-xs font-semibold">
-            <Scale className="h-4 w-4 text-[#22D3EE]" />
-            <span>{compareCount} models in compare</span>
+            <Scale className="h-4 w-4 text-[#27C7D9]" />
+            <span>{compareCount} in compare</span>
           </div>
 
           <Link
             href="/compare"
-            className="rounded-full bg-[#22D3EE] px-4 py-1 text-xs font-bold text-[#0B1220] hover:bg-[#06B6D4] transition-all shadow-sm"
+            className="rounded-full bg-[#27C7D9] px-4 py-1 text-xs font-bold text-[#080B10] hover:bg-[#8DD8E8] transition-all shadow-sm"
           >
-            View Spec Matrix
+            View Matrix
           </Link>
         </div>
       )}
@@ -39,9 +39,9 @@ export default function FloatingActionDock() {
         {totalItems > 0 && (
           <button
             onClick={() => setIsDrawerOpen(true)}
-            className="flex items-center gap-2 rounded-full bg-[#0B1220] text-white border border-[#334155] px-4 py-2.5 text-xs font-bold shadow-xl hover:scale-105 transition-transform"
+            className="flex items-center gap-2 rounded-full bg-[#080B10] text-white border border-[#202832] px-4 py-2.5 text-xs font-bold shadow-xl hover:scale-105 transition-transform"
           >
-            <FileText className="h-4 w-4 text-[#22D3EE]" />
+            <FileText className="h-4 w-4 text-[#27C7D9]" />
             <span>Quote Cart ({totalItems})</span>
           </button>
         )}

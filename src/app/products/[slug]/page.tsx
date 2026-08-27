@@ -263,11 +263,11 @@ export default function ProductDetailPage({ params }: PageProps) {
             {/* Pricing Summary Box */}
             <div className="rounded-2xl border border-[#E2E8F0] bg-white p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4 shadow-sm">
               <div>
-                <div className="text-xs font-bold uppercase tracking-wider text-slate-500">
-                  Estimated Unit Price (Excl. Tax)
+                <div className="text-xs font-bold uppercase tracking-wider text-[#0E7490]">
+                  Indicative Unit Price (Excl. Tax)
                 </div>
                 <div className="flex items-baseline gap-3 mt-1">
-                  <span className="text-2xl sm:text-3xl font-mono-data font-extrabold text-[#0F172A]">
+                  <span className="text-2xl sm:text-3xl font-mono-data font-extrabold text-[#080B10]">
                     ₹{(selectedVariant.offerPrice || selectedVariant.basePrice).toLocaleString('en-IN')}
                   </span>
                   {selectedVariant.offerPrice && (
@@ -277,7 +277,7 @@ export default function ProductDetailPage({ params }: PageProps) {
                   )}
                 </div>
                 <p className="text-[11px] text-emerald-600 font-semibold mt-0.5">
-                  ★ Automatic bulk discount tiers calculated for 3+ units
+                  ★ Automated volume discount: 5% (3+ units), 8% (6+ units), 12% (10+ units)
                 </p>
               </div>
 
@@ -291,7 +291,7 @@ export default function ProductDetailPage({ params }: PageProps) {
                   >
                     <Minus className="h-4 w-4" />
                   </button>
-                  <span className="px-3 font-mono-data font-bold text-sm text-[#0F172A]">{quantity}</span>
+                  <span className="px-3 font-mono-data font-bold text-sm text-[#080B10]">{quantity}</span>
                   <button
                     onClick={() => setQuantity(quantity + 1)}
                     className="p-2 text-slate-500 hover:text-black"
@@ -310,7 +310,7 @@ export default function ProductDetailPage({ params }: PageProps) {
                 className={`sm:col-span-2 flex items-center justify-center gap-2 rounded-xl py-3.5 px-4 text-xs font-bold transition-all shadow-md ${
                   addedAnimation
                     ? 'bg-emerald-600 text-white'
-                    : 'bg-[#22D3EE] text-[#0B1220] hover:bg-[#06B6D4]'
+                    : 'bg-[#27C7D9] text-[#080B10] hover:bg-[#8DD8E8]'
                 }`}
               >
                 {addedAnimation ? (

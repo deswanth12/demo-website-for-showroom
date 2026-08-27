@@ -3,7 +3,7 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { Snowflake, ShieldCheck, Zap, Award, Phone } from 'lucide-react';
+import { Snowflake, FileText, Zap, Layers, Phone } from 'lucide-react';
 import { useTenant } from '@/context/TenantContext';
 
 export default function Footer() {
@@ -11,30 +11,30 @@ export default function Footer() {
 
   return (
     <footer className="border-t border-[#202832] bg-[#080B10] text-[#A8B0BA] text-xs">
-      {/* 4 Pillars Header */}
+      {/* 4 Verifiable B2B Pillars */}
       <div className="border-b border-[#11161D] py-8 px-4 bg-[#05070A]">
         <div className="mx-auto max-w-7xl grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           <div className="flex items-center gap-3">
-            <ShieldCheck className="h-5 w-5 text-[#27C7D9] shrink-0" />
+            <FileText className="h-5 w-5 text-[#27C7D9] shrink-0" />
             <div>
-              <span className="font-bold text-white uppercase tracking-wider block">Commercial Duty</span>
-              <span className="text-[11px] text-slate-400">1-Yr Complete + 4-Yr Compressor</span>
+              <span className="font-bold text-white uppercase tracking-wider block">Engineering Datasheets</span>
+              <span className="text-[11px] text-slate-400">Instant PDF Specs & Dimensions</span>
             </div>
           </div>
 
           <div className="flex items-center gap-3">
             <Zap className="h-5 w-5 text-[#27C7D9] shrink-0" />
             <div>
-              <span className="font-bold text-white uppercase tracking-wider block">Fast Quotation</span>
-              <span className="text-[11px] text-slate-400">Instant PDF Proforma Dispatch</span>
+              <span className="font-bold text-white uppercase tracking-wider block">Fast Quotation Engine</span>
+              <span className="text-[11px] text-slate-400">Itemized Proforma Proposals</span>
             </div>
           </div>
 
           <div className="flex items-center gap-3">
-            <Award className="h-5 w-5 text-[#27C7D9] shrink-0" />
+            <Layers className="h-5 w-5 text-[#27C7D9] shrink-0" />
             <div>
-              <span className="font-bold text-white uppercase tracking-wider block">Volume Tiers</span>
-              <span className="text-[11px] text-slate-400">Automated B2B Bulk Discounts</span>
+              <span className="font-bold text-white uppercase tracking-wider block">Tiered Volume Pricing</span>
+              <span className="text-[11px] text-slate-400">5%, 8%, 12% Bulk Discounts</span>
             </div>
           </div>
 
@@ -42,7 +42,7 @@ export default function Footer() {
             <Phone className="h-5 w-5 text-[#27C7D9] shrink-0" />
             <div>
               <span className="font-bold text-white uppercase tracking-wider block">Direct Technical Desk</span>
-              <span className="text-[11px] text-slate-400">Senior Cooling Engineers</span>
+              <span className="text-[11px] text-slate-400">+91 77022 56073 Consultation</span>
             </div>
           </div>
         </div>
@@ -60,12 +60,11 @@ export default function Footer() {
               <span className="text-sm font-extrabold tracking-tight text-white uppercase">FrostFlow Engineering</span>
             </div>
             <p className="text-xs leading-relaxed text-slate-400 max-w-sm">
-              Specialist supplier of commercial refrigeration systems, tropicalized deep freezers, visi coolers, and modular walk-in cold rooms.
+              Interactive platform concept engineered for commercial refrigeration dealers, multi-branch showrooms, and commercial kitchen contractors.
             </p>
-            <div className="pt-2 flex flex-wrap gap-2 text-[10px] font-mono-data text-slate-500">
-              <span>GSTIN: 27AABCF1234F1Z9</span>
-              <span>•</span>
-              <span>ISO 9001:2015</span>
+            <div className="pt-2 rounded-lg bg-[#11161D] border border-[#202832] p-3 text-[11px] text-slate-400 max-w-sm">
+              <span className="font-bold text-white block mb-0.5">Demo Concept Notice</span>
+              This website is an interactive demonstration concept showcasing modern B2B equipment procurement workflows.
             </div>
           </div>
 
@@ -107,13 +106,14 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Bottom */}
+        {/* Bottom Bar */}
         <div className="mt-12 pt-6 border-t border-[#11161D] flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-slate-500">
-          <p>© {new Date().getFullYear()} FrostFlow Engineering Systems. All rights reserved.</p>
+          <p>© 2026 FrostFlow Engineering • Commercial Refrigeration Platform Concept</p>
           <div className="flex items-center gap-6">
             <Link href="/locations" className="hover:text-slate-300 transition-colors">Locations</Link>
             <Link href="/gallery" className="hover:text-slate-300 transition-colors">Installations</Link>
             <Link href="/quote" className="hover:text-white transition-colors">Quote Cart</Link>
+            <Link href="/admin" className="text-[#8DD8E8] hover:underline font-mono-data">Admin Portal ↗</Link>
           </div>
         </div>
       </div>

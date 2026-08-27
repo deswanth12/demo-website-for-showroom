@@ -174,7 +174,7 @@ export function generateFormalQuotePDF(
   y += 6;
 
   doc.text(`City: ${customer.city}`, 14, y);
-  doc.text(`GSTIN: 27AABCF1234F1Z9`, 110, y);
+  doc.text(`Doc Type: Proforma Quote (Demo Concept)`, 110, y);
   y += 12;
 
   // Table Header
