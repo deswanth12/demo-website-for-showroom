@@ -48,6 +48,10 @@ type AdminTab = 'dashboard' | 'products' | 'quote_requests' | 'formal_quotes' | 
 export default function AdminPage() {
   const [activeTab, setActiveTab] = useState<AdminTab>('dashboard');
   const [currentUserRole, setCurrentUserRole] = useState<'Super Admin' | 'Showroom Manager' | 'Sales Executive' | 'Content Manager' | 'Viewer'>('Showroom Manager');
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [authEmail, setAuthEmail] = useState('admin@frostflow.com');
+  const [authPassword, setAuthPassword] = useState('admin123');
+  const [authError, setAuthError] = useState('');
 
   // Reactive DB States
   const [products, setProducts] = useState<Product[]>([]);
@@ -81,10 +85,37 @@ export default function AdminPage() {
 
   useEffect(() => {
     setMounted(true);
+    const savedAuth = localStorage.getItem('frostflow_admin_auth');
+    if (savedAuth === 'true') {
+      setIsAuthenticated(true);
+    }
     refreshData();
     window.addEventListener('frostflow_db_updated', refreshData);
     return () => window.removeEventListener('frostflow_db_updated', refreshData);
   }, []);
+
+  const handleLogin = (role?: 'Super Admin' | 'Showroom Manager' | 'Sales Executive') => {
+    if (role) {
+      setCurrentUserRole(role);
+      setIsAuthenticated(true);
+      localStorage.setItem('frostflow_admin_auth', 'true');
+      localStorage.setItem('frostflow_admin_role', role);
+      return;
+    }
+
+    if (authEmail && authPassword) {
+      setIsAuthenticated(true);
+      localStorage.setItem('frostflow_admin_auth', 'true');
+      setAuthError('');
+    } else {
+      setAuthError('Please enter your administrator credentials.');
+    }
+  };
+
+  const handleLogout = () => {
+    setIsAuthenticated(false);
+    localStorage.removeItem('frostflow_admin_auth');
+  };
 
   const metrics = analyticsService.getFunnelMetrics();
 
@@ -192,8 +223,124 @@ export default function AdminPage() {
 
   if (!mounted) {
     return (
-      <div className="min-h-screen bg-[#070A0F] flex items-center justify-center text-xs text-slate-500 font-mono-data">
+      <div className="min-h-screen bg-[#080B10] flex items-center justify-center text-xs text-slate-500 font-mono-data">
         Initializing FrostFlow Admin...
+      </div>
+    );
+  }
+
+  // -------------------------------------------------------------
+  // EXECUTIVE LOGIN GATE
+  // -------------------------------------------------------------
+  if (!isAuthenticated) {
+    return (
+      <div className="min-h-screen bg-[#080B10] text-white flex flex-col justify-center py-12 sm:px-6 lg:px-8">
+        <div className="sm:mx-auto sm:w-full sm:max-w-md text-center">
+          <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-white/5 border border-[#202832] text-[#27C7D9] mx-auto mb-4 shadow-xl">
+            <Snowflake className="h-6 w-6" />
+          </div>
+          <h2 className="text-2xl font-extrabold tracking-tight text-white">
+            FrostFlow™ Admin Portal
+          </h2>
+          <p className="mt-1 text-xs text-[#A8B0BA]">
+            Commercial Showroom CRM & Catalogue Management
+          </p>
+        </div>
+
+        <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
+          <div className="bg-[#11161D] border border-[#202832] py-8 px-6 shadow-2xl rounded-2xl sm:px-10 space-y-6">
+            {/* Quick Demo 1-Click Role Login */}
+            <div>
+              <span className="text-[10px] font-mono-data uppercase tracking-wider text-[#27C7D9] font-bold block mb-2 text-center">
+                Quick Role-Based Demo Login:
+              </span>
+              <div className="grid grid-cols-3 gap-2">
+                <button
+                  onClick={() => handleLogin('Super Admin')}
+                  className="rounded-lg border border-[#202832] bg-[#080B10] p-2 text-center text-xs font-semibold text-white hover:border-[#27C7D9] hover:bg-[#202832] transition-all"
+                >
+                  Super Admin
+                </button>
+                <button
+                  onClick={() => handleLogin('Showroom Manager')}
+                  className="rounded-lg border border-[#202832] bg-[#080B10] p-2 text-center text-xs font-semibold text-white hover:border-[#27C7D9] hover:bg-[#202832] transition-all"
+                >
+                  Manager
+                </button>
+                <button
+                  onClick={() => handleLogin('Sales Executive')}
+                  className="rounded-lg border border-[#202832] bg-[#080B10] p-2 text-center text-xs font-semibold text-white hover:border-[#27C7D9] hover:bg-[#202832] transition-all"
+                >
+                  Sales Rep
+                </button>
+              </div>
+            </div>
+
+            <div className="relative">
+              <div className="absolute inset-0 flex items-center">
+                <div className="w-full border-t border-[#202832]" />
+              </div>
+              <div className="relative flex justify-center text-xs uppercase">
+                <span className="bg-[#11161D] px-2 text-slate-500 font-mono-data text-[10px]">
+                  Or Login with Email
+                </span>
+              </div>
+            </div>
+
+            {/* Email / Password Form */}
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+                handleLogin();
+              }}
+              className="space-y-4 text-xs"
+            >
+              {authError && (
+                <div className="rounded-lg bg-red-500/10 border border-red-500/30 p-2.5 text-xs text-red-400 text-center">
+                  {authError}
+                </div>
+              )}
+
+              <div>
+                <label className="block text-slate-400 font-medium mb-1">Staff Email</label>
+                <input
+                  type="email"
+                  required
+                  value={authEmail}
+                  onChange={(e) => setAuthEmail(e.target.value)}
+                  className="w-full rounded-lg border border-[#202832] bg-[#080B10] p-3 text-white placeholder-slate-600 focus:border-[#27C7D9] focus:outline-none"
+                />
+              </div>
+
+              <div>
+                <label className="block text-slate-400 font-medium mb-1">Password</label>
+                <input
+                  type="password"
+                  required
+                  value={authPassword}
+                  onChange={(e) => setAuthPassword(e.target.value)}
+                  className="w-full rounded-lg border border-[#202832] bg-[#080B10] p-3 text-white placeholder-slate-600 focus:border-[#27C7D9] focus:outline-none"
+                />
+              </div>
+
+              <button
+                type="submit"
+                className="w-full rounded-lg bg-[#27C7D9] py-3 text-xs uppercase tracking-wider font-bold text-[#080B10] hover:bg-[#8DD8E8] transition-colors shadow-md"
+              >
+                Sign In to Admin Console
+              </button>
+            </form>
+
+            <div className="pt-2 text-center">
+              <Link
+                href="/"
+                className="text-xs text-[#A8B0BA] hover:text-white transition-colors"
+              >
+                ← Return to Public Storefront
+              </Link>
+            </div>
+          </div>
+        </div>
       </div>
     );
   }
@@ -238,8 +385,15 @@ export default function AdminPage() {
               href="/"
               className="rounded-md border border-white/10 bg-[#161C24] px-3 py-1 text-xs font-semibold text-white hover:bg-white/10 transition-colors"
             >
-              Customer Storefront ↗
+              Storefront ↗
             </Link>
+
+            <button
+              onClick={handleLogout}
+              className="rounded-md border border-red-500/30 bg-red-500/10 px-3 py-1 text-xs font-semibold text-red-400 hover:bg-red-500 hover:text-white transition-colors"
+            >
+              Sign Out
+            </button>
           </div>
         </div>
       </header>
