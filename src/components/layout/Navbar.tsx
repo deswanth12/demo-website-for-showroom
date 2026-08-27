@@ -44,8 +44,8 @@ export default function Navbar() {
       <div className="border-b border-[#11161D] bg-[#05070A] px-3 sm:px-4 py-1.5 text-xs text-[#A8B0BA]">
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-2">
           <div className="flex items-center gap-2 sm:gap-3 overflow-hidden">
-            <span className="rounded bg-white/10 text-slate-300 px-1.5 sm:px-2 py-0.5 text-[9px] sm:text-[10px] font-mono-data font-semibold shrink-0">
-              DEMO CONCEPT
+            <span className="rounded bg-[#27C7D9]/20 text-[#27C7D9] border border-[#27C7D9]/40 px-2 py-0.5 text-[10px] font-mono-data font-bold shrink-0">
+              DEMO CONCEPT v2.4
             </span>
             <div className="relative shrink-0">
               <button
