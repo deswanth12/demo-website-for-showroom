@@ -1,26 +1,79 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --color-obsidian: #080B10;
+    --color-graphite: #11161D;
+    --color-steel: #202832;
+    --color-offwhite: #F4F5F7;
+    --color-silver: #A8B0BA;
+    --color-ice: #8DD8E8;
+    --color-cyan: #27C7D9;
+    --color-white: #FFFFFF;
+    --color-slate-dark: #0A0E14;
+    --color-border: #E5E7EB;
   }
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: #F4F5F7;
+  color: #080B10;
+  font-family: var(--font-sans), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  letter-spacing: -0.02em;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Monospace Engineering Data */
+.font-mono-data {
+  font-family: var(--font-mono), 'JetBrains Mono', 'SF Mono', Consolas, monospace;
+  font-feature-settings: 'tnum' on, 'zero' on;
+}
+
+/* Luxury Industrial Card */
+.luxury-card {
+  background-color: #FFFFFF;
+  border: 1px solid #E5E7EB;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.luxury-card:hover {
+  border-color: #A8B0BA;
+  box-shadow: 0 12px 30px -10px rgba(8, 11, 16, 0.08);
+  transform: translateY(-2px);
+}
+
+/* Restrained Functional Indicators */
+.badge-ice-temp {
+  background-color: #F0F9FB;
+  border: 1px solid #D4F0F6;
+  color: #0E7490;
+}
+
+.badge-stock-active {
+  color: #166534;
+  background-color: #F0FDF4;
+  border: 1px solid #DCFCE7;
+}
+
+/* Clean Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F4F5F7;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94A3B8;
 }
